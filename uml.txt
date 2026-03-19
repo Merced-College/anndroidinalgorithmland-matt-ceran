@@ -1,0 +1,37 @@
+                 ┌───────────────┐
+                 │     Main       │
+                 │  main(args)    │
+                 └───────┬───────┘
+                         │ creates
+                         ▼
+┌─────────────────────────────────────────────────────────────┐
+│                         AppRouter                            │
+│  - root : JPanel        - cards : CardLayout                 │
+│  - menu : MainMenuPanel  - rabbit : RabbitGamePanel          │
+│  - leaderboard : LeaderboardPanel                            │
+│  + goToMenu()  + startRabbitLevel()  + goToLeaderboard()     │
+└───────┬─────────────────────┬───────────────────────┬───────┘
+        │ owns                │ owns                  │ owns
+        ▼                     ▼                       ▼
+┌───────────────┐     ┌────────────────┐      ┌──────────────────┐
+│ MainMenuPanel │     │ RabbitGamePanel│      │ LeaderboardPanel  │
+│ (Splash/UI)   │     │ (Game loop)    │      │ (Terminal UI)     │
+└───────┬───────┘     └───────┬────────┘      └─────────┬────────┘
+        │ uses Assets          │ uses Assets               │ uses repo + algos
+        ▼                      ▼                           ▼
+┌──────────────────┐    ┌──────────────────┐     ┌──────────────────────────┐
+│      Assets       │    │  (music + sfx)   │     │  LeaderboardRepository    │
+│ images + WAV I/O  │    └──────────────────┘     │ loadFromResource(csv)     │
+└──────────────────┘                               └──────────┬──────────────┘
+                                                              │ creates
+                                                              ▼
+                                                     ┌──────────────────┐
+                                                     │    ScoreEntry     │
+                                                     │ username, score…  │
+                                                     └─────────┬────────┘
+                                                               │ used by
+                                                               ▼
+                               ┌──────────────────────────┐    ┌──────────────────────┐
+                               │  LeaderboardAlgorithms   │    │ LeaderboardTableModel │
+                               │ sort + binary search TODO│    │ JTable display data   │
+                               └──────────────────────────┘    └──────────────────────┘
