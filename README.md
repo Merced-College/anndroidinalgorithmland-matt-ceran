@@ -74,3 +74,5 @@ Project setup completed successfully.
 3. I used low, high, and mid as my variables. low starts at 0 (beginning of the list), high starts at list.size() - 1 (end of the list), and mid is calculated as (low + high) / 2 each time through the loop.
 
 4. When the score is not found, the while loop keeps going until low becomes greater than high, which means there's nothing left to search. At that point the method returns -1 to indicate the username wasn't in the list.
+
+5. We also added a binarySearchByScore method in LeaderboardAlgorithms that searches for a specific score number in the descending-order list. The direction is flipped compared to a normal binary search beacuse the list goes from biggest to smallest. Matt -> binarySearchByScore and Victor -> added Search Score button and text field to the terminal.
