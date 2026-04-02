@@ -94,4 +94,36 @@ public class LeaderboardAlgorithms {
         // not in the list
         return -1;
     }
+    
+    /** 
+     * Binary search for a specific score in a descending-sorted list.
+     * list must be sorted by score descending first
+     * returns the index if found, -1 if not found.
+     */
+    
+    public static int binarySearchByScore(ArrayList<ScoreEntry> list, int targetScore) {
+    	int low = 0;
+    	int high = list.size() - 1;
+    
+    
+    
+    //WHILE LOOP
+    	while (low<=high) {
+    		int mid = (low + high) / 2;
+    		int midScore = list.get(mid).getScore();
+    
+    		if (midScore == targetScore) {
+    			return mid;
+    		} else if (midScore > targetScore) {
+    			// mid is too big, loook right after smaller scores
+    			low = mid + 1;
+    		} else {
+    			// mid is too small, look left toward bigger scores
+    			high = mid - 1;
+    		}
+    	}
+    
+    return -1;
+    }
 }
+    

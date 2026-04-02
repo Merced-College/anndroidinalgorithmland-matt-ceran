@@ -1,6 +1,6 @@
 # AnnDroidInAlgorithmLand
 
-Matt Ceran
+Matt Ceran, Victor Alvarez
 03/16/2026
 
 A sample project to practice sorting and searching algorithms. This is a Java Swing game called "Ann Droid in Algorithm Land" where you play a rabbit-clicking game and can view a leaderboard with sorting and searching features.
